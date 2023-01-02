@@ -2,4 +2,3 @@
 class Square:
     """A class of Square"""
     pass
-
