@@ -8,13 +8,12 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """Initializing a new rectangle
-
             Args:
                 width (int): Width of rectangle
                 height (int): Height of rectangle
         """
-        self.__height = height
-        self.__width = width
+        self.height = height
+        self.width = width
 
     @property
     def width(self):
@@ -53,4 +52,17 @@ class Rectangle:
             res = 0
         else:
             res = ((self.__width + self.__height) * 2)
+
         return res
+
+    def _print_rect(self):
+        """Prints object representation"""
+        str = ""
+        for row in range(self.__height):
+            for col in range(self.__width):
+                str += "#"
+            str += "\n"
+        return str
+
+    def __str__(self):
+        return self._print_rec() 
