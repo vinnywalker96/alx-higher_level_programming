@@ -54,15 +54,15 @@ class Rectangle:
             res = ((self.__width + self.__height) * 2)
 
         return res
-
-    def _print_rect(self):
-        """Prints object representation"""
+    	
+    def __str__(self):
+        """Print represetation of a rectangle object"""
         str = ""
+        if self.__width == 0 or self.__height == 0:
+            return str
         for row in range(self.__height):
             for col in range(self.__width):
                 str += "#"
-            str += "\n"
+            if row != self.__height -1:
+                str += "\n"
         return str
-
-    def __str__(self):
-        return self._print_rec() 
