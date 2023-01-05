@@ -54,7 +54,7 @@ class Rectangle:
             res = ((self.__width + self.__height) * 2)
 
         return res
-    	
+
     def __str__(self):
         """Print represetation of a rectangle object"""
         str = ""
@@ -63,6 +63,6 @@ class Rectangle:
         for row in range(self.__height):
             for col in range(self.__width):
                 str += "#"
-            if row != self.__height -1:
+            if row != self.__height - 1:
                 str += "\n"
         return str
