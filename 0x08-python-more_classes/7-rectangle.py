@@ -65,8 +65,8 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return symbol
 
-        for row in range(self.__width):
-            for col in range(self.__height):
+        for row in range(self.__height):
+            for col in range(self.__width):
                 symbol += Rectangle.print_symbol
             if row != self.__height - 1:
                 symbol += "\n"
