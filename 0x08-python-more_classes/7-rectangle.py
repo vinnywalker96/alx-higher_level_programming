@@ -7,9 +7,8 @@ class Rectangle:
     """Representation of a Rectangle"""
 
     number_of_instances = 0
-    print_symbol = "#"
 
-    def __init__(self, width=0, height=0):
+    def __init__(self, width=0, height=0, print_symbol="#"):
         """Initializing a new rectangle
             Args:
                 width (int): Width of rectangle
@@ -18,6 +17,7 @@ class Rectangle:
         self.height = height
         self.width = width
         type(self).number_of_instances += 1
+        self.print_symbol = print_symbol
 
     @property
     def width(self):
@@ -67,7 +67,7 @@ class Rectangle:
 
         for row in range(self.__height):
             for col in range(self.__width):
-                symbol += Rectangle.print_symbol
+                symbol += str(self.print_symbol)
             if row != self.__height - 1:
                 symbol += "\n"
         return symbol
