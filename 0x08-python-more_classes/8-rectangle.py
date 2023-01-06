@@ -7,8 +7,9 @@ class Rectangle:
     """Representation of a Rectangle"""
 
     number_of_instances = 0
+    print_symbol = "#"
 
-    def __init__(self, width=0, height=0, print_symbol="#"):
+    def __init__(self, width=0, height=0):
         """Initializing a new rectangle
             Args:
                 width (int): Width of rectangle
@@ -17,7 +18,6 @@ class Rectangle:
         self.height = height
         self.width = width
         type(self).number_of_instances += 1
-        self.print_symbol = print_symbol
 
     @property
     def width(self):
@@ -79,9 +79,9 @@ class Rectangle:
         based on the area
         """
         if not isinstance(rect_1, Rectangle):
-            raise TypeError("rect1 must be an instance of Rectangle")
+            raise TypeError(f"{rect_1} must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
-            raise TypeError("rect_2 must be an instance of Rectangle")
+            raise TypeError("{rect_2} must be an instance of Rectangle")
 
         if rect_1.area() > rect_2.area():
             return rect_1
