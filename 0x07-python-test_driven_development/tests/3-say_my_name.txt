@@ -3,6 +3,9 @@
 How to Use 3-say_my_name.py
 ===========================
 
+Using ``say_my_name``
+---------------------
+
 This modules prints out first and last name ``say_my_name(first_name, last_name="")``.
 
 Usage
@@ -41,6 +44,6 @@ If either argument is not a string, a TypeError is raised.
 
 ::
 
-    >>> say_my_name("James", 15)
+    >>> say_my_name("james", 12)
     Traceback (most recent call last):
     TypeError: last_name must be a string
