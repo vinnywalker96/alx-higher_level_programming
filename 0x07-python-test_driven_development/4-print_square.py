@@ -2,6 +2,7 @@
 
 """Define print_square function"""
 
+
 def print_square(size):
     """Prints a square withe the character #
 
@@ -21,5 +22,3 @@ def print_square(size):
     for row in range(size):
         [print("#", end="") for col in range(size)]
         print("")
-    
-
