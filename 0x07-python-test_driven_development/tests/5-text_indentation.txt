@@ -24,7 +24,7 @@ No spaces are printed at the beginning of a line.
 
     >>> text_indentation("   Hi there.")
     Hi there.
-    <BLANKLINE>
+    
 
 ::
 
