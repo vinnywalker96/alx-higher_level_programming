@@ -11,7 +11,7 @@ def is_same_class(obj, a_class):
         a_class (class): class argument
 
     """
-    if isinstance(obj, a_class):
-        return True
-    else:
+    if not isinstance(obj, a_class):
         return False
+    else:
+        return True
