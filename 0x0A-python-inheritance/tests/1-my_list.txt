@@ -1,11 +1,3 @@
-1-my_list.py
-=============
-
-Using ``MyList``
-----------------
-
-This module  class MyList that inherits from list.
-First import ``MyList`` from the ``1-my_list`` module
 
 Checking for module docstring:
          >>> m = __import__("1-my_list").__doc__
