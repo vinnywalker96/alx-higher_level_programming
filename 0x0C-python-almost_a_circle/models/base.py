@@ -4,6 +4,7 @@ Define Base class
 """
 import json
 
+
 class Base:
     """Representation of a Base"""
 
