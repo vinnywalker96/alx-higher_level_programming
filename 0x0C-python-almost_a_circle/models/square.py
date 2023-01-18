@@ -29,7 +29,7 @@ class Square(Rectangle):
         self.height = value
 
     def __str__(self):
-         """Return the print() and str() representation of a Square."""
-         return "[{}] ({}) {}/{} - {}".format(self.__class__.__name__,
-                                              self.id, self.x, self.y,
-                                              self.size)
+        """Return the print() and str() representation of a Square."""
+        return "[{}] ({}) {}/{} - {}".format(self.__class__.__name__,
+                                             self.id, self.x, self.y,
+                                             self.size)
