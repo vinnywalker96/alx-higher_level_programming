@@ -23,6 +23,6 @@ class TestBase_Class(unittest.TestCase):
 
      def test_unique_id(self):
           self.assertEqual(12, Base(12).id)
-
+          
 if __name__ == "__main__":
     unittest.main()
