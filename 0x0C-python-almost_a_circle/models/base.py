@@ -41,3 +41,13 @@ class Base:
             else:
                 list_dicts = [arg.to_dictionary() for arg in list_objs]
                 f.write(Base.to_json_string(list_dicts))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """returns the list of the JSON  representation json_string"""
+        json_data = []
+        if json_string is None or len(json_string) == 0:
+            return '{}'.format(json_data)
+        else:
+            json_data.append(json.loads(json_string))
+            return json_data
