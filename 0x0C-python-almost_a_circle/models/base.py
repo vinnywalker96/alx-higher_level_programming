@@ -73,7 +73,7 @@ class Base:
             If the file does not exist - an empty list.
             Otherwise - a list of instantiated classes.
         """
-        filename = str(cls.__name__) + ".csv"
+        filename = str(cls.__name__) + ".json"
         try:
             with open(filename, 'r') as f:
                 list_dicts = Base.from_json_string(f.read())
