@@ -14,6 +14,20 @@ class TestBase_Initialization(unittest.TestCase):
         b2 = Base()
         self.assertEqual(b1.id, b2.id -1)
 
+    def test_multiple_bases(self):
+        b1 = Base()
+        b2 = Base()
+        b3 = Base()
+        self.assertEqual(b1.id, b3.id - 2)
+        self.assertNotEqual(b1.id, b2.id)
+
+    def test_None_id(self):
+        b1 = Base(None)
+        b2 = Base(None)
+        self.assertIsNotNone(b1.id)
+        self.assertIsNotNone(b2.id)
+        self.assertEqual(b1.id, b2.id -1)
+
 
 if __name__ == "__main__":
     unittest.main()
