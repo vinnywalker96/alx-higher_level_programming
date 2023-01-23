@@ -29,11 +29,20 @@ class TestBase_Initialization(unittest.TestCase):
         self.assertEqual(b1.id, b2.id -1)
 
     def test_Base_89(self):
-        b1 = Base()
-        b2 = Base()
-        b1.id = 89
-        b2.id = 89
+        b1 = Base(89)
+        b2 = Base(89)
         self.assertEqual(b1.id, b2.id)
+
+class TestBase_to_json_string(unittest.TestCase):
+
+    def test_type(self):
+        b1 = Rectangle(10,7,2,8)
+        dictionary = b1.to_dictionary()
+        json_dictionary = Base.to_json_string([dictionary])
+        self.assertEqual(str, type(json_dictionary))
+
+    def test_empty_list(self):
+        self.assertEqual('[]', Base.to_json_string([]))
 
 
 if __name__ == "__main__":
