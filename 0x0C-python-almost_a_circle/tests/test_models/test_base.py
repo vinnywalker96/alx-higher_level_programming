@@ -28,6 +28,11 @@ class TestBase_Initialization(unittest.TestCase):
         self.assertIsNotNone(b2.id)
         self.assertEqual(b1.id, b2.id -1)
 
+    def test_Base_89(self):
+        b1 = Base(89)
+        b2 = Base(89)
+        self.assertEqual(b1.id, b2.id)
+
 
 if __name__ == "__main__":
     unittest.main()
