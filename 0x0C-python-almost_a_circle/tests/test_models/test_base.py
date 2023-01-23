@@ -30,8 +30,7 @@ class TestBase_Initialization(unittest.TestCase):
 
     def test_Base_89(self):
         b1 = Base(89)
-        b2 = Base(89)
-        self.assertEqual(b1.id, b2.id)
+        self.assertEqual(b1.id, 89)
 
 class TestBase_to_json_string(unittest.TestCase):
 
