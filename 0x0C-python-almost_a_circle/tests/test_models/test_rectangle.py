@@ -14,6 +14,12 @@ class TestRectangle_initialization(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle()
 
+class TestRectangle_area(unittest.TestCase):
+    """Test Area"""
 
+    def test_area_args(self):
+        r1 = Rectangle(1, 2)
+        self.assertEqual(2, r1.area())
+        
 if __name__ == "__main__":
     unittest.main()
