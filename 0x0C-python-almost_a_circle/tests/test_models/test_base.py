@@ -48,6 +48,21 @@ class TestBase_to_json_string(unittest.TestCase):
 
     def test_empty_string_list(self):
         self.assertEqual('"[]"', Base.to_json_string("[]"))
+
+    def test_dict_args(self):
+        json_dictionary = Base.to_json_string([{"id":12}])
+        self.assertEqual('[{"id": 12}]', json_dictionary)
+
+
+class TestBase_from_json_string(unittest.TestCase):
+
+    def test_empty_json_string_or_None(self):
+        self.assertEqual([], Base.from_json_string(None))
+        self.assertEqual([], Base.from_json_string("[]"))
+
+    def test_id_args(self):
+        self.assertEqual([{ "id": 89 }],
+                         Base.from_json_string('[{ "id": 89 }]'))
         
 if __name__ == "__main__":
     unittest.main()
