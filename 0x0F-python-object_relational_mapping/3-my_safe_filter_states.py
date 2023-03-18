@@ -13,7 +13,7 @@ if __name__ == "__main__":
             db=sys.argv[3])
     obj = conn.cursor()
     obj.execute("SELECT * FROM states WHERE\
-                 name = '{}' ORDER BY id".format(sys.argv[4]))
+                 name IN ('{}') ORDER BY states.id".format(sys.argv[4]))
     rows = obj.fetchall()
     for row in rows:
         print(row)
