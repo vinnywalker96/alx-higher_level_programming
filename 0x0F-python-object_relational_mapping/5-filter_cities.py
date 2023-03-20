@@ -1,31 +1,18 @@
 #!/usr/bin/python3
-"""This script that takes in the name
-of a state as an argument and lists all cities
-"""
+"""  lists all states from the database hbtn_0e_0_usa """
+import MySQLdb
 import sys
-import MySQLdb as db
-
-[USERNAME, PASSWORD, DB_NAME, STATE_NAME] = sys.argv[1:5]
-
-
-def filter_cities():
-    conn = db.connect(
-           host='localhost',
-           user=USERNAME,
-           passwd=PASSWORD,
-           db=DB_NAME,
-           port=3306)
-    obj = conn.cursor()
-    obj.execute("""SELECT cities.name FROM
-                cities INNER JOIN states ON
-                states.id=cities.state_id
-                WHERE states.name=%s""", (STATE_NAME,))
-    rows = obj.fetchall()
-    res = list(row[0] for row in rows)
-    print(*res, sep=", ")
-    obj.close()
-    conn.close()
 
 
 if __name__ == "__main__":
-    filter_cities()
+    db = MySQLdb.connect(host="localhost", user=sys.argv[1],
+                         passwd=sys.argv[2], db=sys.argv[3], port=3306)
+    cur = db.cursor()
+    cur.execute("""SELECT cities.name FROM
+                cities INNER JOIN states ON states.id=cities.state_id
+                WHERE states.name=%s""", (sys.argv[4],))
+    rows = cur.fetchall()
+    tmp = list(row[0] for row in rows)
+    print(*tmp, sep=", ")
+    cur.close()
+    db.close()
