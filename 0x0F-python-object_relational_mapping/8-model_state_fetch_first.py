@@ -8,9 +8,13 @@ from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    state_first = session.query(State).order_by(State.id).first()
-    print("{}: {}".format(state_first.id, state_first.name))
+    instance = session.query(State).first()
+    if instance is None:
+        print("Nothing")
+    else:
+        print(instance.id, instance.name, sep=": ")
