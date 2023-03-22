@@ -15,6 +15,5 @@ if __name__ == "__main__":
     session = Session()
     louisiana = State(name="Louisiana")
     session.add(louisiana)
-    session.commit()
-    for instance in session.query(State).order_by(State.id):
-        print(instance.id, instance.name, sep=": ")
+    instance = session.query(State).filter_by(name='Lousiana').first()
+    print(instance.id)
