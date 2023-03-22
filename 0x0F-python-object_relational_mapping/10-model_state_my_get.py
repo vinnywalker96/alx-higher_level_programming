@@ -6,7 +6,7 @@ import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
-from sqlalchemy import select
+
 
 if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
@@ -15,7 +15,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     instance = session.query(State).filter(State.name == (sys.argv[4],))
-    if instance is None:
-        print("Not found")
-    else:
+    try:
         print(instance[0].id)
+    except IndexError:
+        print("Not found")
