@@ -17,4 +17,4 @@ if __name__ == "__main__":
     session.add(louisiana)
     session.commit()
     for instance in session.query(State).order_by(State.id):
-        print("{}: {}".format(instance.id, instance.name))
+        print(instance.id, instance.name, sep=": ")
