@@ -1,8 +1,18 @@
 #!/usr/bin/python3
+"""A script that:
+- takes in a URL,
+- sends a request to the URL and displays the value
+- of the X-Request-Id variable found in the header ofthe response.
+"""
+
 import urllib.request
 import sys
 
-url = sys.argv[1]
-with urllib.request.urlopen(url) as response:
-    content_type = response.getheader('X-Request-Id')
-print(content_type)
+
+if __name__ == "__main__":
+    url = sys.argv[1]
+
+    req = urllib.request.Request(url)
+    with urllib.request.urlopen(req) as response:
+        content_info = response.getheader('X-Request-Id')
+    print(content_info)
