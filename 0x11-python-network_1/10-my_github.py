@@ -12,10 +12,6 @@ from requests.auth import HTTPBasicAuth
 
 
 if __name__ == "__main__":
-    username = sys.argv[1]
-    password = sys.argv[2]
-
-    basic = HTTPBasicAuth(username, password)
-    req = requests.get(f'https://api.github.com/users/{username}', auth=basic)
-    data = req.json()
-    print(str(data["id"]))
+    auth = HTTPBasicAuth(sys.argv[1], sys.argv[2])
+    response = requests.get("https://api.github.com/user", auth=auth)
+    print(response.json().get("id"))
