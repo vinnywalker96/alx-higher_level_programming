@@ -17,7 +17,7 @@ def pascal_triangle(n):
                     row.append(1)
                 else:
                     prev = res[row_num - 1]
-                    elem = prev[num_elem + 1] + prev[num_elem]
+                    elem = prev[num_elem - 1] + prev[num_elem]
                     row.append(elem)
             res.append(row)
         return res
