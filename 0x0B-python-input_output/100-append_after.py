@@ -10,7 +10,13 @@ def append_after(filename="", search_string="", new_string=""):
         search_string (str)
         new_string (str)
     """
+    temp = filename + '.tmp'
     with open(filename, encoding="utf-8") as f:
-        if search_string in f.read():
-            with open(filename, mode="a", encoding="utf-8") as f:
-                f.write(new_string)
+        with open(temp, mode="w", encoding="utf-8") as tmp_f:
+            for line in f:
+                tmp_f.write(line)
+                if search_string in line:
+                    tmp_f.write(new_string)
+    os.replace(temp, filename)
+    if os.path.isfile(temp):
+        os.remove(temp)
