@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Search and update"""
+import os
 
 
 def append_after(filename="", search_string="", new_string=""):
@@ -9,9 +10,7 @@ def append_after(filename="", search_string="", new_string=""):
         search_string (str)
         new_string (str)
     """
-    with open(filename, "a+") as f:
-        file_content = f.read()
-        for word in file_content:
-            if word == search_string:
-                continue
-            f.write(new_string)
+    with open(filename, encoding="utf-8") as f:
+        if search_string in f.read():
+            with open(filename, mode="a", encoding="utf-8") as f:
+                f.write(new_string)
