@@ -4,14 +4,17 @@
 
 def append_after(filename="", search_string="", new_string=""):
     """inserts a line of text to a file,
-    after each line containing a specific string 
+    after each line containing a specific string
     Args:
         search_string (str)
         new_string (str)
     """
     temp = filename + '.tmp'
-    with open(filename, mode="a+", encoding="utf-8") as f:
+    with open(filename, "r") as f, open(temp, "w") as data:
         for line in f:
+            data.write(line)
             if search_string in line:
-                f.write(new_string)
-
+                data.write(new_string)
+    with open(temp, 'r') as f, open(filename, 'w') as data:
+        for line in f:
+            data.write(line)
