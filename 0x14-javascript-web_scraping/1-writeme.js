@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const write = require('fs/promises');
+const write = require('fs');
 
 const data = process.argv[3];
 const filePath = process.argv[2];
