@@ -14,6 +14,10 @@ const options = {
 };
 
 request(options, function (err, res, body) {
-  const json = JSON.parse(body);
-  console.log(json.title);
+  try {
+    const json = JSON.parse(body);
+    console.log(json.title);
+  } catch (error) {
+    console.error(err);
+  }
 });
