@@ -12,9 +12,6 @@ request(url, (err, response, body) => {
       film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
     );
     const numberOfMovies = filteredFilms.length;
-    if (!numberOfMovies) {
-      return;
-    }
     console.log(numberOfMovies);
   } catch (error) {
     console.error(err);
