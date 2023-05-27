@@ -7,7 +7,7 @@ const characterId = 18;
 
 request(url, (err, response, body) => {
   if (err) {
-    console.error(err);
+    console.error(`Error: ${err}`);
   } else {
     const films = JSON.parse(body).results;
     const filteredFilms = films.filter(film =>
