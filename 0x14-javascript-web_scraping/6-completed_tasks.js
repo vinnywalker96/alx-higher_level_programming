@@ -7,6 +7,7 @@ const apiUrl = process.argv[2];
 
 // Make a request to the API
 request(apiUrl, (error, response, body) => {
+  const tasks = {};
   if (error) {
     console.error('Error:', error);
   } else if (response.statusCode !== 200) {
@@ -25,7 +26,8 @@ request(apiUrl, (error, response, body) => {
 
     // Print users with completed tasks
     Object.entries(completedTasksByUserId).forEach(([userId, count]) => {
-      console.log(` ${userId}: ${count}`);
+      tasks[`${userId}`] = count;
     });
   }
+  console.log(tasks);
 });
